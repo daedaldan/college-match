@@ -27,7 +27,7 @@ def bot():
         msg.body("entered elif")
         # find matches based on SAT score
         matches = sat_match(int(incoming_msg))
-        msg.body(matches)
+        msg.body(matches[0])
         msg.body("finished matching")
         responded = True
     else:
