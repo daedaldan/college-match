@@ -20,7 +20,8 @@ def bot():
     
     responded = False
 
-    msg.body("Welcome to College Match 🎓 I’m here to help you find the ideal universities that fit your preferences.\nTo start, what’s your SAT score?")
+    if "hello" in incoming_msg or "hi" in incoming_msg:
+        msg.body("Welcome to College Match 🎓 I’m here to help you find the ideal universities that fit your preferences.\nTo start, what’s your SAT score?")
 
     if int(incoming_msg) > 0 or int(incoming_msg) <= 1600:
         # find matches based on SAT score
