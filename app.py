@@ -25,6 +25,7 @@ def bot():
         responded = True
     elif "0" in incoming_msg:
         # find matches based on SAT score
+        msg.body("Let's see. Looking for schools...")
         matches = sat_match(int(incoming_msg))
         recommendations = "Here are some recommendations:\n" + "\n".join(matches)
         msg.body(recommendations)
