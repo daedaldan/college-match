@@ -26,6 +26,7 @@ def bot():
     elif incoming_msg.isdigit():
         msg.body("entered elif")
         # find matches based on SAT score
+        msg.body(int(incoming_msg))
         matches = sat_match(int(incoming_msg))
         msg.body(matches[0])
         msg.body("finished matching")
