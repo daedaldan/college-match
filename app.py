@@ -21,16 +21,16 @@ def bot():
     responded = False
 
     if "hello" in incoming_msg or "hi" in incoming_msg:
-        msg.body("\nWelcome to College Match 🎓 I’m here to help you find the ideal universities that fit your preferences.\nTo start, what’s your SAT score?")
+        msg.body("Welcome to College Match 🎓 I’m here to help you find the ideal universities that fit your preferences.\nTo start, what’s your SAT score?")
         responded = True
     elif "0" in incoming_msg:
         # find matches based on SAT score
         matches = sat_match(1600)
-        recommendations = "\nHere are some recommendations:\n" + ":".join(matches)
+        recommendations = "Here are some recommendations:\n" + "\n".join(matches)
         msg.body(recommendations)
         responded = True
     else:
-       msg.body("\nSorry, I don't understand what you're saying. Please try again.")
+       msg.body("Sorry, I don't understand what you're saying. Please try again.")
    
     return str(resp)
 
@@ -38,7 +38,7 @@ def sat_match(score):
     reader = csv.DictReader(open('colleges.csv'))
 
     mysat = score
-    mycolleges = ["Test University"]
+    mycolleges = []
 
     # iterate through colleges in CSV
     for college in reader:
