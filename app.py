@@ -25,14 +25,14 @@ def bot():
         responded = True
     elif "SAT" in incoming_msg:
         msg.body("entering")
-        score = int(incoming_msg.split("SAT:")[1])
+        score = int(incoming_msg.split(":")[1])
         # find matches based on SAT score
         matches = sat_match(int(incoming_msg))
-        #msg.body(matches[0])
+        msg.body(matches[0])
         msg.body("finished matching")
         responded = True
-    #else:
-    #   msg.body("Sorry, I don't understand what you're saying. Please try again.")
+    else:
+       msg.body("Sorry, I don't understand what you're saying. Please try again.")
    
     return str(resp)
 
