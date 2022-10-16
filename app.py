@@ -23,11 +23,10 @@ def bot():
     if "hello" in incoming_msg or "hi" in incoming_msg:
         msg.body("Welcome to College Match 🎓 I’m here to help you find the ideal universities that fit your preferences.\nTo start, what’s your SAT score?")
         responded = True
-    else:
-        msg.body(type(incoming_msg))
-        msg.body("entered elif")
+    elif "SAT" in incoming_msg:
+        msg.body("entering")
+        score = int(incoming_msg.split("SAT:")[1])
         # find matches based on SAT score
-        msg.body(incoming_msg)
         matches = sat_match(int(incoming_msg))
         #msg.body(matches[0])
         msg.body("finished matching")
