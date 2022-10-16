@@ -28,7 +28,7 @@ def bot():
         matches = sat_match(int(incoming_msg))
         msg.body("\n".join(matches))
         responded = True
-    else not responded:
+    else:
         msg.body("Sorry, I don't understand what you're saying. Please try again.")
    
     return str(resp)
