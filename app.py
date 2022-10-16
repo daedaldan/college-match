@@ -27,7 +27,7 @@ def bot():
         msg.body("entering")
         score = int(incoming_msg.split(":")[1])
         # find matches based on SAT score
-        matches = sat_match(int(incoming_msg))
+        matches = sat_match(score)
         msg.body(matches[0])
         msg.body("finished matching")
         responded = True
