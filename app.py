@@ -39,6 +39,7 @@ def sat_match(score):
 
     mysat = score
     mycolleges = ["Test University"]
+    return mycolleges
 
     # iterate through colleges in CSV
     for college in reader:
