@@ -40,7 +40,7 @@ def sat_match(score):
     reader = csv.DictReader(open('colleges.csv'))
 
     mysat = score
-    mycolleges = []
+    mycolleges = ["Test University"]
 
     # iterate through colleges in CSV
     for college in reader:

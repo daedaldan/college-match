@@ -5,10 +5,12 @@ reader = csv.DictReader(open('colleges.csv'))
 mysat = 1600
 mycolleges = []
 
+# iterate through colleges in CSV
 for college in reader:
     sat25 = sat75 = 0
     i = 0
 
+    # calculate average SAT score for college based on info available
     if college['SAT Critical Reading 25th percentile score'] != '' and college['SAT Critical Reading 75th percentile score'] != '':
         sat25 += int(college['SAT Critical Reading 25th percentile score'])
         sat75 += int(college['SAT Critical Reading 75th percentile score'])
@@ -31,8 +33,7 @@ for college in reader:
     elif i == 1:
         sat = sat25 + sat75
 
-    print(college['Name'], sat)
-
+    # add college to list if average SAT matches user's SAT
     if abs(mysat - sat) <= 120:
         mycolleges.append(college['Name'])
 
