@@ -1,4 +1,5 @@
 import './App.css';
+import Recommender from './components/Recommender.js';
 
 function App() {
   let questions = ["question 1", "question 2"];
@@ -10,7 +11,7 @@ function App() {
       {questions.map((item, index) => (
         <p key={index}>{item}</p>
         ))}
-      <h2>Recommended Colleges</h2>
+      <Recommender/>
     </div>
   );
 }
