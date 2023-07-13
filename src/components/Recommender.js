@@ -14,8 +14,9 @@ export default class Recommender extends Component {
         "urbanization": [],
         "ownership": []
       },
-      college_matches: {}
-    };
+      college_matches: []
+    }
+    ;
 
     this.match_colleges = this.match_colleges.bind(this);
     this.updateValue = this.updateValue.bind(this);
@@ -23,7 +24,18 @@ export default class Recommender extends Component {
 
   // add colleges listed in colleges.csv that match question_answers to college-matches
   match_colleges() {
-
+    this.setState({college_matches: [
+        {
+          name : "UMD College Park",
+          description: "great school"
+        },
+        {
+          name : "Penn State",
+          description: "okay school"
+        }
+      ]
+      });
+    console.log("match colleges");
   }
 
   // update question_answers based on user interactions with Questions component
@@ -36,7 +48,7 @@ export default class Recommender extends Component {
   render() {
     return (
         <div>
-          <Questions updateValue={this.updateValue}/>
+          <Questions updateValue={this.updateValue} findMatches={this.match_colleges}/>
           <Recommendations college_matches={this.state.college_matches}/>
           {/* Testing */}
         </div>

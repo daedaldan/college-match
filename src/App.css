@@ -5,3 +5,17 @@
 #main {
   margin: 5%;
 }
+
+body {
+  font-family: 'Avenir', sans-serif;
+}
+
+#recommendations {
+  margin-top: 3%;
+}
+.college {
+  border-style: solid;
+  margin-bottom: 2%;
+  padding: 2%;
+  layout: flex;
+}

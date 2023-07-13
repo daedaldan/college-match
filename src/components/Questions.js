@@ -19,6 +19,7 @@ export default class Questions extends Component {
     this.handleSizesChange = this.handleSizesChange.bind(this);
     this.handleUrbanizationChange = this.handleUrbanizationChange.bind(this);
     this.handleOwnershipChange = this.handleOwnershipChange.bind(this);
+    this.handleFindMatches = this.handleFindMatches.bind(this);
   }
 
   handleSATChange(e) {
@@ -73,7 +74,7 @@ export default class Questions extends Component {
     this.props.updateValue("urbanization", new_urbanization);
   }
 
-   handleOwnershipChange(e) {
+  handleOwnershipChange(e) {
     // create new list to replace old geographic regions
     let new_ownership = this.state.ownership;
     // if checked, add geographic region to old list
@@ -85,6 +86,11 @@ export default class Questions extends Component {
 
     this.setState({"ownership": new_ownership})
     this.props.updateValue("ownership", new_ownership);
+  }
+
+  handleFindMatches(e) {
+    e.preventDefault();
+    this.props.findMatches();
   }
 
   render() {
@@ -128,8 +134,10 @@ export default class Questions extends Component {
             <p>Would you rather attend a public or private school, or both?</p>
             <input type="checkbox" name="ownership" id="public" onChange={this.handleOwnershipChange}/>
             <label htmlFor="public">Public</label><br/>
-            <input type="checkbox" name="ownership" id="private" onChange={this.handleOwnershiphange}/>
+            <input type="checkbox" name="ownership" id="private" onChange={this.handleOwnershipChange}/>
             <label htmlFor="private">Private</label><br/>
+            {/* button to find matches */}
+            <button id="match_button" onClick={this.handleFindMatches}>Find Matches</button>
           </form>
         </div>
     );
