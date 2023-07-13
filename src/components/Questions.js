@@ -7,22 +7,28 @@ export default class Questions extends Component {
     this.state = {
       "SAT": "",
       "GPA": "",
-      "geography": []
+      "geography": [],
+      "sizes": [],
+      "urbanization": [],
+      "ownership": []
     };
 
     this.handleSATChange = this.handleSATChange.bind(this);
     this.handleGPAChange = this.handleGPAChange.bind(this);
     this.handleGeographyChange = this.handleGeographyChange.bind(this);
+    this.handleSizesChange = this.handleSizesChange.bind(this);
+    this.handleUrbanizationChange = this.handleUrbanizationChange.bind(this);
+    this.handleOwnershipChange = this.handleOwnershipChange.bind(this);
   }
 
   handleSATChange(e) {
     this.setState({"SAT" : e.target.value});
-    this.props.updateSAT(e.target.value);
+    this.props.updateValue("SAT", e.target.value);
   }
 
   handleGPAChange(e) {
     this.setState({"GPA" : e.target.value});
-    this.props.updateGPA(e.target.value);
+    this.props.updateValue("GPA", e.target.value);
   }
 
   handleGeographyChange(e) {
@@ -35,9 +41,50 @@ export default class Questions extends Component {
       new_geography.splice(this.state.geography.indexOf(e.target.id), 1);
     }
 
-    console.log(new_geography);
     this.setState({"geography": new_geography})
-    this.props.updateGeography(new_geography);
+    this.props.updateValue("geography", new_geography);
+  }
+
+  handleSizesChange(e) {
+    // create new list to replace old school sizes
+    let new_sizes = this.state.sizes;
+    // if checked, add school size to old list
+    if (e.target.checked) {
+      new_sizes.push(e.target.id);
+    } else { // if unchecked, remove geographic region from old list
+      new_sizes.splice(this.state.sizes.indexOf(e.target.id), 1);
+    }
+
+    this.setState({"sizes": new_sizes})
+    this.props.updateValue("sizes", new_sizes);
+  }
+
+  handleUrbanizationChange(e) {
+    // create new list to replace old geographic regions
+    let new_urbanization = this.state.urbanization;
+    // if checked, add geographic region to old list
+    if (e.target.checked) {
+      new_urbanization.push(e.target.id);
+    } else { // if unchecked, remove geographic region from old list
+      new_urbanization.splice(this.state.urbanization.indexOf(e.target.id), 1);
+    }
+
+    this.setState({"urbanization": new_urbanization})
+    this.props.updateValue("urbanization", new_urbanization);
+  }
+
+   handleOwnershipChange(e) {
+    // create new list to replace old geographic regions
+    let new_ownership = this.state.ownership;
+    // if checked, add geographic region to old list
+    if (e.target.checked) {
+      new_ownership.push(e.target.id);
+    } else { // if unchecked, remove geographic region from old list
+      new_ownership.splice(this.state.ownership.indexOf(e.target.id), 1);
+    }
+
+    this.setState({"ownership": new_ownership})
+    this.props.updateValue("ownership", new_ownership);
   }
 
   render() {
@@ -61,6 +108,28 @@ export default class Questions extends Component {
             <label htmlFor="south">South</label><br/>
             <input type="checkbox" name="geography" id="west" onChange={this.handleGeographyChange}/>
             <label htmlFor="west">West</label><br/>
+            {/* sizes question */}
+            <p>Which sizes of schools do you prefer?</p>
+            <input type="checkbox" name="sizes" id="small" onChange={this.handleSizesChange}/>
+            <label htmlFor="small">Small</label><br/>
+            <input type="checkbox" name="sizes" id="medium" onChange={this.handleSizesChange}/>
+            <label htmlFor="medium">Medium</label><br/>
+            <input type="checkbox" name="sizes" id="large" onChange={this.handleSizesChange}/>
+            <label htmlFor="large">Large</label><br/>
+            {/* urbanization question */}
+            <p>What type of setting do you want to attend college in?</p>
+            <input type="checkbox" name="urbanization" id="rural" onChange={this.handleUrbanizationChange}/>
+            <label htmlFor="rural">Rural</label><br/>
+            <input type="checkbox" name="urbanization" id="suburban" onChange={this.handleUrbanizationChange}/>
+            <label htmlFor="suburban">Suburban</label><br/>
+            <input type="checkbox" name="urbanization" id="urban" onChange={this.handleUrbanizationChange}/>
+            <label htmlFor="urban">Urban</label><br/>
+            {/* ownership question */}
+            <p>Would you rather attend a public or private school, or both?</p>
+            <input type="checkbox" name="ownership" id="public" onChange={this.handleOwnershipChange}/>
+            <label htmlFor="public">Public</label><br/>
+            <input type="checkbox" name="ownership" id="private" onChange={this.handleOwnershiphange}/>
+            <label htmlFor="private">Private</label><br/>
           </form>
         </div>
     );

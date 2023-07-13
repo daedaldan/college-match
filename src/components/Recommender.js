@@ -9,17 +9,15 @@ export default class Recommender extends Component {
         "SAT": null,
         "GPA": null,
         "geography": [],
-        "size": null,
-        "urbanization": null,
-        "type": null
+        "sizes": [],
+        "urbanization": [],
+        "ownership": []
       },
       college_matches: {}
     };
 
     this.match_colleges = this.match_colleges.bind(this);
-    this.updateSAT = this.updateSAT.bind(this);
-    this.updateGPA = this.updateGPA.bind(this);
-    this.updateGeography = this.updateGeography.bind(this);
+    this.updateValue = this.updateValue.bind(this);
   }
 
   // add colleges listed in colleges.csv that match question_answers to college-matches
@@ -28,35 +26,28 @@ export default class Recommender extends Component {
   }
 
   // update question_answers based on user interactions with Questions component
-  updateSAT(score) {
+  // key is question and value is answer from user input
+  updateValue(key, value) {
     let new_answers = this.state.question_answers;
-    new_answers["SAT"] = score;
-    this.setState({question_answers: new_answers});
-  }
-
-  updateGPA(gpa) {
-    let new_answers = this.state.question_answers;
-    new_answers["GPA"] = gpa;
-    this.setState({question_answers: new_answers});
-  }
-
-  // takes list of string representing geographic regions as input
-  updateGeography(regions) {
-    let new_answers = this.state.question_answers;
-    new_answers["geography"] = regions;
+    new_answers[key] = value;
     this.setState({question_answers: new_answers});
   }
 
   render() {
     return (
         <div>
-          <Questions updateSAT={this.updateSAT} updateGPA={this.updateGPA} updateGeography={this.updateGeography}/>
+          <Questions updateValue={this.updateValue}/>
           {/* Testing */}
           <p>Your SAT score is: {this.state.question_answers.SAT}</p>
           <p>Your GPA is: {this.state.question_answers.GPA}</p>
           <p>Your preferred geographic regions are:</p>
           {this.state.question_answers.geography.map((region, index) => (<p key={index}>{region}</p>))}
-
+          <p>Your preferred college sizes are:</p>
+          {this.state.question_answers.sizes.map((size, index) => (<p key={index}>{size}</p>))}
+          <p>Your preferred college settings are:</p>
+          {this.state.question_answers.urbanization.map((setting, index) => (<p key={index}>{setting}</p>))}
+          <p>Your preferred type(s) of schools are:</p>
+          {this.state.question_answers.ownership.map((type, index) => (<p key={index}>{type}</p>))}
         </div>
     );
   }
