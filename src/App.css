@@ -102,8 +102,9 @@ img {
 
 .tag {
   display: inline-flex;
-  flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   word-wrap: break-word;
   border-radius: 10%;
   background: #d5ebf5;
