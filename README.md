@@ -4,9 +4,11 @@ College Match is a clean, simple tool to help you find the right universities to
 All college data in the app is from the 2022-2023 U.S. News National University Rankings, only including schools ranked among the top 50.
 
 To use College Match on your local machine, make sure to have Git, Node.js, and npm installed. Then, run the following lines in the command line:
-  git clone https://github.com/daedaldan/college-match.git
-  cd college-match
-  npm install
-  npm start
+```
+git clone https://github.com/daedaldan/college-match.git
+cd college-match
+npm install
+npm start
+```
   
   
