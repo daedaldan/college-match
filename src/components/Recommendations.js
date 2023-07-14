@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Recommendations = (props) => {
+  // if no colleges are in list of matches, inform user
   if (props.college_matches.length === 0) {
     return(
         <div>
@@ -12,11 +13,13 @@ const Recommendations = (props) => {
       <div id="recommendations">
         <h2>Recommendations</h2>
         <div id="colleges">
+          {/* for each college in list of matches, create div with college's image, information, and website link */}
           {props.college_matches.map((college) => (
               <div className="college">
                 <div className="primary-info">
                   <img src={college.image}/>
                   <h3>{college.name}</h3>
+                  {/* Only include first 4 sentences of college's description */}
                   <p>{college.description.split(". ").slice(0, 4).join(". ") + "."}</p>
                 </div>
                 <div className="secondary-info">

@@ -6,6 +6,8 @@ import college_data from '../colleges.json';
 export default class Recommender extends Component {
   constructor(props) {
     super(props);
+
+    // initialize state with list of user answers to questions and list of recommended colleges
     this.state = {
       question_answers: {
         "SAT": null,
@@ -16,14 +18,13 @@ export default class Recommender extends Component {
         "ownership": []
       },
       college_matches: []
-    }
-    ;
+    };
 
     this.match_colleges = this.match_colleges.bind(this);
     this.updateValue = this.updateValue.bind(this);
   }
 
-  // add colleges listed in colleges.csv (college_data) that match question_answers to college-matches
+  // add colleges listed in colleges.csv (college_data) that match question_answers to college-matches array
   match_colleges() {
     // initialize empty array to store colleges matching user criteria
     let matches = [];
@@ -40,6 +41,7 @@ export default class Recommender extends Component {
     this.setState({college_matches: matches});
   }
 
+  // return true or false based on whether college matches user's inputted criteria or not
   match(college) {
     // reject college if user's SAT score is less than college's average by over 80 points
     if (this.state.question_answers.SAT < college.SAT - 80) {

@@ -4,6 +4,7 @@ export default class Questions extends Component {
   constructor(props) {
     super(props);
 
+    // initialize state with list of variables controlling user input for each question
     this.state = {
       "SAT": "",
       "GPA": "",
@@ -22,6 +23,7 @@ export default class Questions extends Component {
     this.handleFindMatches = this.handleFindMatches.bind(this);
   }
 
+  /* functions to handle user input by updating local and parent state for corresponding question */
   handleSATChange(e) {
     this.setState({"SAT" : e.target.value});
     this.props.updateValue("SAT", e.target.value);
@@ -52,7 +54,7 @@ export default class Questions extends Component {
     // if checked, add school size to old list
     if (e.target.checked) {
       new_sizes.push(e.target.id);
-    } else { // if unchecked, remove geographic region from old list
+    } else { // if unchecked, remove size from old list
       new_sizes.splice(this.state.sizes.indexOf(e.target.id), 1);
     }
 
@@ -61,12 +63,12 @@ export default class Questions extends Component {
   }
 
   handleUrbanizationChange(e) {
-    // create new list to replace old geographic regions
+    // create new list to replace old settings
     let new_urbanization = this.state.urbanization;
-    // if checked, add geographic region to old list
+    // if checked, add setting to old list
     if (e.target.checked) {
       new_urbanization.push(e.target.id);
-    } else { // if unchecked, remove geographic region from old list
+    } else { // if unchecked, remove setting from old list
       new_urbanization.splice(this.state.urbanization.indexOf(e.target.id), 1);
     }
 
@@ -75,12 +77,12 @@ export default class Questions extends Component {
   }
 
   handleOwnershipChange(e) {
-    // create new list to replace old geographic regions
+    // create new list to replace old school types
     let new_ownership = this.state.ownership;
-    // if checked, add geographic region to old list
+    // if checked, add school type to old list
     if (e.target.checked) {
       new_ownership.push(e.target.id);
-    } else { // if unchecked, remove geographic region from old list
+    } else { // if unchecked, remove school type from old list
       new_ownership.splice(this.state.ownership.indexOf(e.target.id), 1);
     }
 

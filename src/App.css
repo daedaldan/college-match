@@ -1,15 +1,17 @@
-#title {
-  background: linear-gradient(to right, #4a90ed, #47c969);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* Website */
+body {
+  font-family: 'Avenir', sans-serif;
 }
 
 #main {
   margin: 5%;
 }
 
-body {
-  font-family: 'Avenir', sans-serif;
+/* Title */
+#title {
+  background: linear-gradient(to right, #4a90ed, #47c969);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Questions */
@@ -127,6 +129,7 @@ a:hover {
   color: #a4cee0;
 }
 
+/* Footer */
 footer {
   text-align: right;
   margin-top: 5%;
