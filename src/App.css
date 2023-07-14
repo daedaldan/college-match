@@ -23,7 +23,6 @@ input {
 }
 
 input[type=checkbox] {
-  border-style: solid;
   margin: 0.5%;
 }
 
