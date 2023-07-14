@@ -23,7 +23,9 @@ input {
 }
 
 input[type=checkbox] {
+  border: solid;
   margin: 0.5%;
+  appearance: auto;
 }
 
 button {
