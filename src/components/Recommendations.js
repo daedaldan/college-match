@@ -14,20 +14,24 @@ const Recommendations = (props) => {
         <div id="colleges">
           {props.college_matches.map((college) => (
               <div className="college">
-                <img src={college.image}/>
-                <h3>{college.name}</h3>
-                <p>{college.description.split(". ").slice(0, 4).join(". ") + "."}</p>
-                <div>
-                  <p className="academics"><b>Average SAT</b> {college.SAT}</p>
-                  <p className="academics"><b>Average GPA</b> {college.GPA ? college.GPA : "N/A"}</p>
+                <div className="primary-info">
+                  <img src={college.image}/>
+                  <h3>{college.name}</h3>
+                  <p>{college.description.split(". ").slice(0, 4).join(". ") + "."}</p>
                 </div>
-                <div className="tags">
-                  <p className="tag">{college.geography}</p>
-                  <p className="tag">{college.size}</p>
-                  <p className="tag">{college.urbanization}</p>
-                  <p className="tag">{college.ownership}</p>
+                <div className="secondary-info">
+                  <div>
+                    <p className="academics"><b>Average SAT</b> {college.SAT}</p>
+                    <p className="academics"><b>Average GPA</b> {college.GPA ? college.GPA : "N/A"}</p>
+                  </div>
+                  <div className="tags">
+                    <p className="tag">{college.geography}</p>
+                    <p className="tag">{college.size}</p>
+                    <p className="tag">{college.urbanization}</p>
+                    <p className="tag">{college.ownership}</p>
+                  </div>
+                  <a href={college.link}>Learn More</a>
                 </div>
-                <a href={college.link}>Learn More</a>
               </div>
           ))}
         </div>
