@@ -10,12 +10,98 @@ body {
   font-family: 'Avenir', sans-serif;
 }
 
+/* Questions */
+input {
+  border: none;
+  border-radius: 5px;
+  padding: 1%;
+  box-shadow: 0 0 2px gray;
+}
+
+input[type=checkbox] {
+  border-style: solid;
+  margin: 0.5%;
+}
+
+button {
+  padding: 1%;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  background: #4db6e3;
+  margin-top: 2%;
+  box-shadow: 0 0 2px gray;
+}
+
+button:hover {
+  color: #5A5A5A;
+}
+
+/* Recommendations */
 #recommendations {
   margin-top: 3%;
 }
-.college {
-  border-style: solid;
-  margin-bottom: 2%;
-  padding: 2%;
-  layout: flex;
+
+@media (min-width: 767px) {
+  #colleges {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+    grid-gap: 10px;
+  }
+
+  .college {
+    border-radius: 10px;
+    box-shadow: 0 0 10px gray;
+    margin-bottom: 2%;
+    padding: 2%;
+  }
+}
+
+@media (max-width: 767px) {
+  .college {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 10px;
+    box-shadow: 0 0 10px gray;
+    margin-bottom: 2%;
+    padding: 2%;
+  }
+
+  input[type=text] {
+    width: 90%;
+    margin: 2% 0;
+  }
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.academics {
+  display: inline-block;
+  margin: 1% 1% 1% 0;
+}
+
+.tag {
+  display: inline-block;
+  border-radius: 10%;
+  background: #d5ebf5;
+  margin: 1% 1% 1% 0;
+  padding: 1%;
+}
+
+a {
+  margin-top: auto;
+  text-decoration: none;
+  color: #4db6e3;
+}
+
+a:visited {
+  color: #4db6e3;
+}
+
+a:hover {
+  color: #a4cee0;
 }

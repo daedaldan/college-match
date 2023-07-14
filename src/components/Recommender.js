@@ -41,8 +41,8 @@ export default class Recommender extends Component {
   }
 
   match(college) {
-    // reject college if user's SAT score is less than college's average by over 50 points
-    if (this.state.question_answers.SAT < college.SAT - 50) {
+    // reject college if user's SAT score is less than college's average by over 80 points
+    if (this.state.question_answers.SAT < college.SAT - 80) {
       return false;
     } // reject college if user's GPA score is less than college's average by over 0.2 points
     else if (this.state.question_answers.GPA < college.GPA - 0.2) {

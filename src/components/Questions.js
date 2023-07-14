@@ -100,10 +100,10 @@ export default class Questions extends Component {
           <form>
             {/* SAT score question */}
             <label htmlFor="SAT">What is your SAT score?</label><br/>
-            <input name="SAT" id="SAT" value={this.state.SAT} onChange={this.handleSATChange}/><br/>
+            <input type="text" name="SAT" id="SAT" value={this.state.SAT} onChange={this.handleSATChange}/><br/>
             {/* GPA question */}
             <label htmlFor="GPA">What is your GPA?</label><br/>
-            <input name="GPA" id="GPA" value={this.state.GPA} onChange={this.handleGPAChange}/><br/>
+            <input type="text" name="GPA" id="GPA" value={this.state.GPA} onChange={this.handleGPAChange}/><br/>
             {/* geography question */}
             <p>Which geographic regions do you prefer?</p>
             <input type="checkbox" name="geography" id="northeast" onChange={this.handleGeographyChange}/>
