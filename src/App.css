@@ -19,6 +19,7 @@ input {
   padding: 1%;
   box-shadow: 0 0 5px gray;
   font-size: 0.8em;
+  -webkit-appearance: none;
 }
 
 input[type=checkbox] {
