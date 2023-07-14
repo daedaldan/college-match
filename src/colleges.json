@@ -1,0 +1,22 @@
+[
+ {
+   "name": "University of Maryland, College Park",
+   "description": "Great school.",
+   "SAT": 1420,
+   "GPA": 3.9,
+   "geography": "northeast",
+   "size": "large",
+   "urbanization": "suburban",
+   "ownership": "public"
+ },
+ {
+   "name": "Stanford University",
+   "description": "Good school.",
+   "SAT": 1520,
+   "GPA": 3.9,
+   "geography": "west",
+   "size": "medium",
+   "urbanization": "suburban",
+   "ownership": "private"
+ }
+]
