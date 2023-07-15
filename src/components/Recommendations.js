@@ -17,7 +17,7 @@ const Recommendations = (props) => {
           {props.college_matches.map((college) => (
               <div className="college">
                 <div className="primary-info">
-                  <img src={college.image}/>
+                  <img src={college.image} alt={"photo of " + college.name}/>
                   <h3>{college.name}</h3>
                   {/* Only include first 4 sentences of college's description */}
                   <p>{college.description.split(". ").slice(0, 4).join(". ") + "."}</p>
