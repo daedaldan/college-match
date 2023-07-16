@@ -46,8 +46,9 @@ export default class Recommender extends Component {
     // reject college if user's SAT score is less than college's average by over 80 points
     if (this.state.question_answers.SAT < college.SAT - 80) {
       return false;
-    } // reject college if user's GPA score is less than college's average by over 0.2 points
-    else if (this.state.question_answers.GPA < college.GPA - 0.2) {
+    } // reject college if user's GPA score is less than college's average by over 0.2 points 
+      // (do not take into account if college GPA is unavailable)
+    else if (this.state.question_answers.GPA < college.GPA - 0.2 && college.GPA != 0) {
       return false;
     } // reject college if its geography, size, setting, or ownership does not match user's inputted answers
     else if (!this.state.question_answers.geography.includes(college.geography)) {
