@@ -25,7 +25,7 @@ const Recommendations = (props) => {
                 <div className="secondary-info">
                   <div>
                     <p className="academics"><b>Average SAT</b> {college.SAT}</p>
-                    <p className="academics"><b>Average GPA</b> {college.GPA ? college.GPA : "N/A"}</p>
+                    <p className="academics"><b>Average GPA</b> {college.GPA != 0 ? college.GPA : "N/A"}</p>
                   </div>
                   <div className="tags">
                     <p className="tag">{college.geography}</p>
